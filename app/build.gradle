@@ -44,5 +44,4 @@ dependencies {
     /**
      * storage benches
      */
-    androidTestCompile "com.squareup.sqlbrite:sqlbrite:$versions.sqlBrite"
 }
