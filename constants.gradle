@@ -7,7 +7,7 @@ ext {
   buildTools = "25.0.2"
 
   versions = [
-      android               : "2.3.0",
+      android               : "2.3.1",
       anko                  : "0.9",
       glide                 : "3.7.0",
       circleIndicator       : "1.2.2",
@@ -22,7 +22,7 @@ ext {
       leakCanary            : "1.5",
       materialdatetimepicker: "2.3.0",
       nimbledroid           : "1.0.8",
-      okHttp                : "3.5.0",
+      okHttp                : "3.7.0",
       okio                  : "1.11.0",
       playServices          : "10.0.1",
       realm                 : "0.88.3",
