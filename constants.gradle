@@ -2,7 +2,7 @@ ext {
     CI = "true".equals(System.getenv("CI"))
 
     // 16 for nice sqliteopenhelper api
-    minSdk = 16
+    minSdk = 21
     targetSdk = 25
     buildTools = "25.0.2"
 

@@ -11,6 +11,7 @@ android {
 
         minSdkVersion minSdk
         targetSdkVersion targetSdk
+        multiDexEnabled true
 
         versionCode 1
         versionName "1.0"
@@ -31,6 +32,7 @@ dependencies {
     androidTestCompile kotlinArtifacts.stdlib
     androidTestCompile supportTest.runner
     androidTestCompile supportTest.rules
+    androidTestCompile "io.kotlintest:kotlintest:2.0.0"
 
     /**
      * json benches
@@ -40,8 +42,4 @@ dependencies {
     androidTestCompile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
     androidTestCompile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
     androidTestCompile "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.jackson"
-
-    /**
-     * storage benches
-     */
 }

@@ -2,6 +2,7 @@ package adeln.json.storage
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -38,7 +39,7 @@ fun ContentValues.marshal(x: Tweet) {
     put("current_user_retweet", t.currentUserRetweet != null)
 }
 
-class Database(ctx: Context) : SQLiteOpenHelper(ctx, "databas", null, 1) {
+class Database(ctx: Context, fileName: String) : SQLiteOpenHelper(ctx, fileName, null, 1) {
     override fun onCreate(db: SQLiteDatabase): Unit =
         db.execSQL(SCHEMA)
 
@@ -75,5 +76,15 @@ inline fun <T> Transaction.clean(marshal: ContentValues.() -> T): ContentValues 
 inline fun <T> Transaction.insertOrReplace(table: String, marshal: ContentValues.() -> T): Long =
     db.insertWithOnConflict(table, null, clean(marshal), SQLiteDatabase.CONFLICT_REPLACE)
 
-fun mkDb(ctx: Context): Database =
-    Database(ctx)
+inline fun <T> Transaction.insertOrIgnore(table: String, marshal: ContentValues.() -> T): Long =
+    db.insertWithOnConflict(table, null, clean(marshal), SQLiteDatabase.CONFLICT_IGNORE)
+
+fun mkSqlite(ctx: Context, fileName: String = "database.sqlite"): Database =
+    Database(ctx, fileName)
+
+fun Cursor.forEach(f: (Cursor) -> Unit): Unit =
+    if (moveToFirst()) {
+        do {
+            f(this)
+        } while (moveToNext())
+    } else Unit
