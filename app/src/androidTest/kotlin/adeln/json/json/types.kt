@@ -1,4 +1,4 @@
-package adeln.json
+package adeln.json.json
 
 data class LfmResults<out T>(
     val results: T
