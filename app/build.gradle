@@ -1,44 +1,48 @@
-apply plugin: 'com.android.application'
+apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
+apply plugin: "realm-android"
 
 android {
-  compileSdkVersion targetSdk
-  buildToolsVersion "25.0.2"
+    compileSdkVersion targetSdk
+    buildToolsVersion "25.0.2"
 
-  defaultConfig {
-    applicationId "adeln.json"
+    defaultConfig {
+        applicationId "adeln.json"
 
-    minSdkVersion minSdk
-    targetSdkVersion targetSdk
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
 
-    versionCode 1
-    versionName "1.0"
+        versionCode 1
+        versionName "1.0"
 
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
 
-  sourceSets.each {
-    it.java.srcDirs += "src/${it.name}/kotlin"
-  }
+    sourceSets.each {
+        it.java.srcDirs += "src/${it.name}/kotlin"
+    }
 
-  packagingOptions {
-    exclude 'META-INF/LICENSE'
-  }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+    }
 }
 
 dependencies {
-  androidTestCompile group: 'com.squareup.moshi', name: 'moshi', version: '1.4.0'
-  androidTestCompile group: 'com.squareup.okhttp3', name: 'mockwebserver', version: versions.okHttp
+    androidTestCompile kotlinArtifacts.stdlib
+    androidTestCompile supportTest.runner
+    androidTestCompile supportTest.rules
 
-  androidTestCompile kotlinArtifacts.stdlib
+    /**
+     * json benches
+     */
+    androidTestCompile group: 'com.squareup.moshi', name: 'moshi', version: '1.4.0'
+    androidTestCompile group: 'com.squareup.okhttp3', name: 'mockwebserver', version: versions.okHttp
+    androidTestCompile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
+    androidTestCompile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: versions.jackson
+    androidTestCompile "com.fasterxml.jackson.module:jackson-module-kotlin:$versions.jackson"
 
-  androidTestCompile supportTest.runner
-  androidTestCompile supportTest.rules
-
-  androidTestCompile group: 'com.google.code.gson', name: 'gson', version: '2.8.0'
-
-  final jacksonVer = "2.9.0.pr2"
-
-  androidTestCompile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVer
-  androidTestCompile "com.fasterxml.jackson.module:jackson-module-kotlin:$jacksonVer"
+    /**
+     * storage benches
+     */
+    androidTestCompile "com.squareup.sqlbrite:sqlbrite:$versions.sqlBrite"
 }

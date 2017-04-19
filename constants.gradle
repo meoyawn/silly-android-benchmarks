@@ -1,107 +1,108 @@
 ext {
-  CI = "true".equals(System.getenv("CI"))
+    CI = "true".equals(System.getenv("CI"))
 
-  // 16 for nice sqliteopenhelper api
-  minSdk = 16
-  targetSdk = 25
-  buildTools = "25.0.2"
+    // 16 for nice sqliteopenhelper api
+    minSdk = 16
+    targetSdk = 25
+    buildTools = "25.0.2"
 
-  versions = [
-      android               : "2.3.1",
-      anko                  : "0.9",
-      glide                 : "3.7.0",
-      circleIndicator       : "1.2.2",
-      crashlyticsCore       : "2.3.14",
-      either                : "1.0.2",
-      espresso              : "2.2.2",
-      expekt                : "0.5.0",
-      fabric                : "1.22.0",
-      flow                  : "0.12",
-      junit                 : "4.12",
-      kotlin                : "1.1.0",
-      leakCanary            : "1.5",
-      materialdatetimepicker: "2.3.0",
-      nimbledroid           : "1.0.8",
-      okHttp                : "3.7.0",
-      okio                  : "1.11.0",
-      playServices          : "10.0.1",
-      realm                 : "0.88.3",
-      retrofit              : "2.0.2",
-      robolectric           : "3.1.4",
-      rxandroid             : "1.2.1",
-      rxjava                : "1.2.5",
-      rxrelay               : "1.2.0",
-      rxbinding             : "1.0.0",
-      sqlBrite              : "1.1.1",
-      stetho                : "1.3.1",
-      support               : "25.1.0",
-      supportTest           : "0.5",
-      timber                : "4.4.0",
-      vksdk                 : "1.6.7",
-      yigitJobqueue         : "2.0.1",
-      reactivelocation      : "0.10",
+    versions = [
+        android               : "2.3.1",
+        anko                  : "0.9",
+        glide                 : "3.7.0",
+        circleIndicator       : "1.2.2",
+        crashlyticsCore       : "2.3.14",
+        either                : "1.0.2",
+        espresso              : "2.2.2",
+        expekt                : "0.5.0",
+        fabric                : "1.22.0",
+        flow                  : "0.12",
+        junit                 : "4.12",
+        kotlin                : "1.1.0",
+        leakCanary            : "1.5",
+        materialdatetimepicker: "2.3.0",
+        nimbledroid           : "1.0.8",
+        okHttp                : "3.7.0",
+        okio                  : "1.11.0",
+        playServices          : "10.0.1",
+        realm                 : "3.1.2",
+        retrofit              : "2.0.2",
+        robolectric           : "3.1.4",
+        rxandroid             : "1.2.1",
+        rxjava                : "1.2.5",
+        rxrelay               : "1.2.0",
+        rxbinding             : "1.0.0",
+        sqlBrite              : "1.1.1",
+        stetho                : "1.3.1",
+        support               : "25.1.0",
+        supportTest           : "0.5",
+        timber                : "4.4.0",
+        vksdk                 : "1.6.7",
+        yigitJobqueue         : "2.0.1",
+        reactivelocation      : "0.10",
 
-      kotlinAndroid         : "0.9.0",
-      mapissuesJava         : "1.1.1",
-  ]
+        kotlinAndroid         : "0.9.0",
+        mapissuesJava         : "1.1.1",
+        jackson               : "2.9.0.pr2",
+    ]
 
-  kotlinArtifacts = [
-      plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
-      stdlib: "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
-  ]
+    kotlinArtifacts = [
+        plugin: "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        stdlib: "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
+    ]
 
-  support = [
-      fragment      : "com.android.support:support-fragment:$versions.support",
-      compat        : "com.android.support:support-compat:$versions.support",
-      coreUtils     : "com.android.support:support-core-utils:$versions.support",
-      coreUi        : "com.android.support:support-core-ui:$versions.support",
-      mediaCompat   : "com.android.support:support-media-compat:$versions.support",
-      design        : "com.android.support:design:$versions.support",
-      recyclerView  : "com.android.support:recyclerview-v7:$versions.support",
-      cardView      : "com.android.support:cardview-v7:$versions.support",
-      appCompat     : "com.android.support:appcompat-v7:$versions.support",
-      annotations   : "com.android.support:support-annotations:$versions.support",
-      vectorDrawable: "com.android.support:support-vector-drawable:$versions.support",
-      gridLayout    : "com.android.support:gridlayout-v7:$versions.support",
-      percent       : "com.android.support:percent:$versions.support",
-  ]
+    support = [
+        fragment      : "com.android.support:support-fragment:$versions.support",
+        compat        : "com.android.support:support-compat:$versions.support",
+        coreUtils     : "com.android.support:support-core-utils:$versions.support",
+        coreUi        : "com.android.support:support-core-ui:$versions.support",
+        mediaCompat   : "com.android.support:support-media-compat:$versions.support",
+        design        : "com.android.support:design:$versions.support",
+        recyclerView  : "com.android.support:recyclerview-v7:$versions.support",
+        cardView      : "com.android.support:cardview-v7:$versions.support",
+        appCompat     : "com.android.support:appcompat-v7:$versions.support",
+        annotations   : "com.android.support:support-annotations:$versions.support",
+        vectorDrawable: "com.android.support:support-vector-drawable:$versions.support",
+        gridLayout    : "com.android.support:gridlayout-v7:$versions.support",
+        percent       : "com.android.support:percent:$versions.support",
+    ]
 
-  anko = [
-      sdk15       : "org.jetbrains.anko:anko-sdk15:$versions.anko",
-      recyclerView: "org.jetbrains.anko:anko-recyclerview-v7:$versions.anko",
-      appCompat   : "org.jetbrains.anko:anko-appcompat-v7:$versions.anko",
-      design      : "org.jetbrains.anko:anko-design:$versions.anko",
-      percent     : "org.jetbrains.anko:anko-percent:$versions.anko",
-  ]
+    anko = [
+        sdk15       : "org.jetbrains.anko:anko-sdk15:$versions.anko",
+        recyclerView: "org.jetbrains.anko:anko-recyclerview-v7:$versions.anko",
+        appCompat   : "org.jetbrains.anko:anko-appcompat-v7:$versions.anko",
+        design      : "org.jetbrains.anko:anko-design:$versions.anko",
+        percent     : "org.jetbrains.anko:anko-percent:$versions.anko",
+    ]
 
-  retrofit = [
-      retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
-      moshi   : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
-      rxjava  : "com.squareup.retrofit2:adapter-rxjava:$versions.retrofit",
-  ]
+    retrofit = [
+        retrofit: "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        moshi   : "com.squareup.retrofit2:converter-moshi:$versions.retrofit",
+        rxjava  : "com.squareup.retrofit2:adapter-rxjava:$versions.retrofit",
+    ]
 
-  stetho = [
-      stetho: "com.facebook.stetho:stetho:$versions.stetho",
-      okhttp: "com.facebook.stetho:stetho-okhttp:$versions.stetho",
-  ]
+    stetho = [
+        stetho: "com.facebook.stetho:stetho:$versions.stetho",
+        okhttp: "com.facebook.stetho:stetho-okhttp:$versions.stetho",
+    ]
 
-  playServices = [
-      gcm     : "com.google.android.gms:play-services-gcm:$versions.playServices",
-      maps    : "com.google.android.gms:play-services-maps:$versions.playServices",
-      location: "com.google.android.gms:play-services-location:$versions.playServices"
-  ]
+    playServices = [
+        gcm     : "com.google.android.gms:play-services-gcm:$versions.playServices",
+        maps    : "com.google.android.gms:play-services-maps:$versions.playServices",
+        location: "com.google.android.gms:play-services-location:$versions.playServices"
+    ]
 
-  supportTest = [
-      runner     : "com.android.support.test:runner:$versions.supportTest",
-      rules      : "com.android.support.test:rules:$versions.supportTest",
-      espresso   : "com.android.support.test.espresso:espresso-core:$versions.espresso",
-      espressoWeb: "com.android.support.test.espresso:espresso-web:$versions.espresso",
-      idling     : "com.android.support.test.espresso:espresso-idling-resource:$versions.espresso",
-      contrib    : "com.android.support.test.espresso:espresso-contrib:$versions.espresso",
-  ]
+    supportTest = [
+        runner     : "com.android.support.test:runner:$versions.supportTest",
+        rules      : "com.android.support.test:rules:$versions.supportTest",
+        espresso   : "com.android.support.test.espresso:espresso-core:$versions.espresso",
+        espressoWeb: "com.android.support.test.espresso:espresso-web:$versions.espresso",
+        idling     : "com.android.support.test.espresso:espresso-idling-resource:$versions.espresso",
+        contrib    : "com.android.support.test.espresso:espresso-contrib:$versions.espresso",
+    ]
 
-  rxjava = [
-      rxjava   : "io.reactivex:rxjava:$versions.rxjava",
-      rxandroid: "io.reactivex:rxandroid:$versions.rxandroid",
-  ]
+    rxjava = [
+        rxjava   : "io.reactivex:rxjava:$versions.rxjava",
+        rxandroid: "io.reactivex:rxandroid:$versions.rxandroid",
+    ]
 }
