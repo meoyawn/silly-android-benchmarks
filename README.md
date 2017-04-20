@@ -1,5 +1,7 @@
-json-benchmarks
-===============
+silly android benchmarks
+========================
+
+## JSON
 
 time:
 
@@ -8,3 +10,13 @@ time:
 gc count:
 
 ![](https://i.imgur.com/fcoFpQK.png)
+
+## Storage
+
+time:
+
+![](https://i.imgur.com/A729bYb.png)
+
+gc count:
+
+![](https://i.imgur.com/RDjMfmz.png)

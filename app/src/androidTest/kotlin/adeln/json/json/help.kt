@@ -23,7 +23,8 @@ inline fun <T> mockWebServer(f: (MockWebServer) -> T): T =
 fun mkRequest(url: HttpUrl): Request =
     Request.Builder().url(url).build()
 
-fun testLog(x: Any) = Log.d("testlog", x.toString())
+fun testLog(x: Any): Int =
+    Log.d("testlog", x.toString())
 
 fun mkType(): ParameterizedType =
     Types.newParameterizedType(LfmResults::class.java, AlbumSearch::class.java)

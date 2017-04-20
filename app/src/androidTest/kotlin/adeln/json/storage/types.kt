@@ -21,7 +21,6 @@ fun nextUser(): User =
 
 data class Tweet(
     val id: Long,
-    val retweetedStatus: Tweet?,
     val user: User,
     val createdAt: String,
     val text: String,
@@ -33,7 +32,6 @@ data class Tweet(
 fun Random.nextTweet(): Tweet =
     Tweet(
         id = nextLong(),
-        retweetedStatus = if (nextBoolean()) nextTweet() else null,
         user = nextUser(),
         createdAt = nextString(),
         text = nextString(),

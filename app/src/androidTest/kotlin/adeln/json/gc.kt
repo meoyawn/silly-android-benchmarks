@@ -1,5 +1,6 @@
 package adeln.json
 
+import adeln.json.json.testLog
 import java.io.Closeable
 import java.lang.ref.PhantomReference
 import java.lang.ref.ReferenceQueue
@@ -40,3 +41,9 @@ fun startGcCounter(): GcCounter {
 
     return GcCounter(cnt, thread)
 }
+
+inline fun logGc(name: String, f: () -> Unit): Int =
+    startGcCounter().use { gc ->
+        f()
+        testLog("$name garbage ${gc.count}")
+    }

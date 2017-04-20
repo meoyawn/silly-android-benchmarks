@@ -21,11 +21,11 @@ CREATE TABLE tweets (
 )
 """
 
-fun ContentValues.marshal(x: Tweet) {
-    put("id", x.id)
-    put("who_retweeted", x.retweetedStatus?.let { x.user.name })
+fun ContentValues.marshal(t: Tweet) {
+    put("id", t.id)
+    putNull("who_retweeted")
 
-    val t = x.retweetedStatus ?: x
+    val t = t
     put("created_at", t.createdAt)
 
     val u = t.user

@@ -1,10 +1,9 @@
 package adeln.json.storage
 
-import android.content.Context
 import io.realm.Realm
-import io.realm.RealmConfiguration
+import io.realm.RealmModel
 import io.realm.RealmObject
-import io.realm.annotations.Index
+import io.realm.RealmQuery
 import io.realm.annotations.PrimaryKey
 
 inline fun <T> Realm.inTransaction(f: Realm.() -> T): T {
@@ -24,7 +23,7 @@ inline fun <T> Realm.inTransaction(f: Realm.() -> T): T {
 }
 
 open class LocalTweet : RealmObject() {
-    @PrimaryKey @Index var id: Long = -1
+    @PrimaryKey var id: Long = -1
     var createdAt: String = ""
     var profileImageUrl: String = ""
     var userName: String = ""
@@ -36,10 +35,9 @@ open class LocalTweet : RealmObject() {
     var whoRetweeted: String? = null
 }
 
-fun LocalTweet.marshal(x: Tweet) {
-    id = x.id
-    whoRetweeted = x.retweetedStatus?.let { x.user.name }
-    val t = x.retweetedStatus ?: x
+fun LocalTweet.marshal(t: Tweet) {
+    id = t.id
+    whoRetweeted = null
 
     val u = t.user
     createdAt = t.createdAt
@@ -53,12 +51,5 @@ fun LocalTweet.marshal(x: Tweet) {
     currentUserRetweet = t.currentUserRetweet != null
 }
 
-fun mkRealm(ctx: Context, fileName: String = "realm.realm"): Realm {
-    Realm.init(ctx)
-
-    val config = RealmConfiguration.Builder()
-        .name(fileName)
-        .build()
-
-    return Realm.getInstance(config)
-}
+inline fun <reified T : RealmModel> Realm.where(): RealmQuery<T> =
+    where(T::class.java)
