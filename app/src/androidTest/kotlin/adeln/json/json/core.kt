@@ -20,7 +20,7 @@ fun smallJson(parser: Parser, name: String) {
 
         startGcCounter().use { gc ->
 
-            repeat(250) {
+            repeat(400) {
                 val response = client.newCall(req).execute()
 
                 val parsed = parser(response.body().source())
