@@ -1,13 +1,12 @@
 ext {
-    CI = "true".equals(System.getenv("CI"))
+    CI = "true" == System.getenv("CI")
 
-    // 16 for nice sqliteopenhelper api
     minSdk = 21
     targetSdk = 25
-    buildTools = "25.0.2"
+    buildTools = "25.0.3"
 
     versions = [
-        android               : "2.3.1",
+        android               : "2.3.2",
         anko                  : "0.9",
         glide                 : "3.7.0",
         circleIndicator       : "1.2.2",
