@@ -4,7 +4,7 @@ apply plugin: "realm-android"
 
 android {
     compileSdkVersion targetSdk
-    buildToolsVersion "25.0.2"
+    buildToolsVersion buildTools
 
     defaultConfig {
         applicationId "adeln.json"
@@ -29,10 +29,14 @@ android {
 }
 
 dependencies {
+    compile "android.arch.persistence.room:runtime:1.0.0-alpha1"
+    kapt "android.arch.persistence.room:compiler:1.0.0-alpha1"
+
     androidTestCompile kotlinArtifacts.stdlib
     androidTestCompile supportTest.runner
     androidTestCompile supportTest.rules
     androidTestCompile "io.kotlintest:kotlintest:2.0.2"
+    androidTestCompile support.coreUtils
 
     /**
      * json benches

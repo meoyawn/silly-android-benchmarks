@@ -23,7 +23,7 @@ fun smallJson(parser: Parser, name: String) {
             repeat(400) {
                 val response = client.newCall(req).execute()
 
-                val parsed = parser(response.body().source())
+                val parsed = parser(response.body()!!.source())
 
                 check(parsed.results.albummatches.album.isNotEmpty())
             }

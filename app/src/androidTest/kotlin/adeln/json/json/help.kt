@@ -37,7 +37,7 @@ fun mkMoshi(): Parser {
     val adapter = moshi.adapter<LfmResults<AlbumSearch>>(mkType())
 
     return {
-        adapter.fromJson(it)
+        adapter.fromJson(it)!!
     }
 }
 
