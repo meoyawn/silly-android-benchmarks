@@ -5,6 +5,7 @@ buildscript {
 
     repositories {
         jcenter()
+        google()
     }
 
     dependencies {
@@ -12,7 +13,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:$versions.android"
 
         // detecting outdated dependencies
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.17.0'
 
         // sane programming language
         classpath kotlinArtifacts.plugin
@@ -26,7 +27,7 @@ apply plugin: 'com.github.ben-manes.versions'
 allprojects {
     repositories {
         jcenter()
-        maven { url 'https://maven.google.com' } // room
+        google() // room
     }
 }
 
