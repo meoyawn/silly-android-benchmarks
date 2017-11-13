@@ -17,14 +17,14 @@ ext {
         fabric                : "1.22.0",
         flow                  : "0.12",
         junit                 : "4.12",
-        kotlin                : "1.1.2-4",
+        kotlin                : "1.1.51",
         leakCanary            : "1.5",
         materialdatetimepicker: "2.3.0",
         nimbledroid           : "1.0.8",
-        okHttp                : "3.8.0",
+        okHttp                : "3.9.0",
         okio                  : "1.11.0",
         playServices          : "10.0.1",
-        realm                 : "3.3.1",
+        realm                 : "4.1.1",
         retrofit              : "2.0.2",
         robolectric           : "3.1.4",
         rxandroid             : "1.2.1",
@@ -33,8 +33,8 @@ ext {
         rxbinding             : "1.0.0",
         sqlBrite              : "1.1.1",
         stetho                : "1.3.1",
-        support               : "25.3.1",
-        supportTest           : "0.5",
+        support               : "27.0.1",
+        supportTest           : "1.0.1",
         timber                : "4.4.0",
         vksdk                 : "1.6.7",
         yigitJobqueue         : "2.0.1",
@@ -42,8 +42,10 @@ ext {
 
         kotlinAndroid         : "0.9.0",
         mapissuesJava         : "1.1.1",
-        jackson               : "2.9.0.pr3",
+        jackson               : "2.9.2",
         moshi                 : "1.5.0",
+
+        room                  : "1.0.0",
     ]
 
     kotlinArtifacts = [
